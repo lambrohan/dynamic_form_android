@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/card_profile">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:padding="8dp"
+        android:gravity="center"
+        android:id="@+id/collapse_button"
+        >
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/down_arrow_next"
+            />
+
+    </RelativeLayout>
+    <com.github.aakira.expandablelayout.ExpandableLinearLayout
+        android:id="@+id/expandable_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/collapse_button"
+        android:orientation="vertical"
+
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/dynamic_lay_main">
+
+        </LinearLayout>
+
+
+    </com.github.aakira.expandablelayout.ExpandableLinearLayout>
+
+
+</RelativeLayout>

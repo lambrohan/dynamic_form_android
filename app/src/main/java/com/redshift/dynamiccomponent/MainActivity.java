@@ -1,5 +1,6 @@
 package com.redshift.dynamiccomponent;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -32,8 +33,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         linearLayout = findViewById(R.id.form_parent_layout);
+
         button = findViewById(R.id.button);
         editTexts = new ArrayList<>();
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(0,32,0,8);
 
         //on click listeners
         final ArrayList<MyFormElement> formElements = new ArrayList<>();
@@ -52,8 +56,12 @@ public class MainActivity extends AppCompatActivity {
             if (formElements.get(i).getType().equals("et")){
                 TextView label = new TextView(this);
                 label.setText(formElements.get(i).getLabel());
+                label.setLayoutParams(layoutParams);
                 formElements.get(i).setEditText(new EditText(this));
                 EditText editText = formElements.get(i).getEditText();
+                editText.setTextSize(16f);
+                editText.setBackground(getDrawable(R.drawable.input_style));
+                editText.setPadding(32,20,32,20);
                 editText.setHint(formElements.get(i).getLabel());
 
                 if (label.getParent() != null){
@@ -64,9 +72,16 @@ public class MainActivity extends AppCompatActivity {
 
             }else if (formElements.get(i).getType().equals("spinner")){
                 TextView label = new TextView(this);
+                label.setLayoutParams(layoutParams);
                 label.setText(formElements.get(i).getLabel());
                 formElements.get(i).setSpinner(new Spinner(this));
                 Spinner spinner = formElements.get(i).getSpinner();
+                spinner.setBackground(getDrawable(R.drawable.button_dropdown_custom));
+
+
+                spinner.setElevation(6);
+
+
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item
                         , formElements.get(i).getOptions());
                 spinner.setAdapter(arrayAdapter);
@@ -99,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 Log.d(TAG, "onClick: "+ data.toString());
+                Intent intent = new Intent(MainActivity.this,DynamicActivity.class);
+                startActivity(intent);
             }
 
         });

@@ -30,4 +30,13 @@ dependencies {
 //    design
     implementation 'com.android.support:design:27.1.1'
     implementation 'me.riddhimanadib.form-master:form-master:1.1.0'
+
+//    Support Design
+    implementation 'com.android.support:cardview-v7:27.1.1'
+
+//    Expandable Lay
+    implementation 'com.github.aakira:expandable-layout:1.6.0@aar'
+
+//    Circle Image
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 }
